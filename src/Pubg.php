@@ -107,6 +107,12 @@ class Pubg {
         $url = 'https://api.pubg.com/status';
         return $this->dispatchCurlRequest($url);
     }
+    public function getSeasons(){
+        $params = [
+            'entity' => 'seasons'
+        ];
+        return $this->request($params);
+    }
     public function getPlayerSeasonstats($player_id,$season){
         $params = [
             'entity'=>$this::PLAYER_ENT,
