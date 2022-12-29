@@ -107,4 +107,18 @@ class Pubg {
         $url = 'https://api.pubg.com/status';
         return $this->dispatchCurlRequest($url);
     }
+    public function getPlayerSeasonstats($player_id,$season){
+        $params = [
+            'entity'=>$this::PLAYER_ENT,
+            'id'=>$player_id.'/seasons/'.$season,
+        ];
+        return $this->request($params);
+    }
+    public function getLeaderboards($season, $gamemode){
+        $params = [
+            'entity'=>'leaderboards',
+            'id'=>$season.'/'.$gamemode,
+        ];
+        return $this->request($params);
+    }
 }
